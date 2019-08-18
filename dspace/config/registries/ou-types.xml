@@ -1,0 +1,181 @@
+<?xml version="1.0"?>
+
+<!--
+  - dublin-core-types.xml
+  -
+  - Version:  $Revision$
+  -
+  - Date:     $Date$
+  -
+  - Initial contents for Dublin Core type registry.  Once the registry has
+  - been loaded, this file becomes obsolete; the current version of the
+  - registry must be read from the database.
+  - Use org.dspace.content.MetadataSchema, org.dspace.content.MetadataField, org.dspace.content.MetadataValue instead.
+  - Omit <qualifier> tags for unqualified elements
+  -
+  - <dc-type>
+  -   <schema></schema>
+  -   <element></element>
+  -   <qualifier></qualifier>
+  -   <scope_note></scope_note>
+  - </dc-type>
+  -->
+
+<!-- start of XML -->
+
+<dspace-dc-types>
+
+    <dspace-header>
+        <title>OU metadata types registry</title>
+    </dspace-header>
+
+    <dc-schema>
+        <name>ou</name>
+        <namespace>http://atmire.com/oklahoma/ou</namespace>
+    </dc-schema>
+
+    <dc-type>
+        <schema>ou</schema>
+        <element>identifier</element>
+        <!-- unqualified -->
+        <scope_note></scope_note>
+    </dc-type>
+
+    <dc-type>
+        <schema>ou</schema>
+        <element>faculty</element>
+        <!-- unqualified -->
+        <scope_note></scope_note>
+    </dc-type>
+
+    <dc-type>
+        <schema>ou</schema>
+        <element>teacher</element>
+        <!-- unqualified -->
+        <scope_note>OU course teacher/instructor/Lecturer/GA</scope_note>
+    </dc-type>
+
+    <dc-type>
+        <schema>ou</schema>
+        <element>group</element>
+        <!-- unqualified -->
+        <scope_note></scope_note>
+    </dc-type>
+
+    <dc-type>
+        <schema>ou</schema>
+        <element>homecountry</element>
+        <!-- unqualified -->
+        <scope_note>OU home country</scope_note>
+    </dc-type>
+
+    <dc-type>
+        <schema>ou</schema>
+        <element>homestate</element>
+        <!-- unqualified -->
+        <scope_note>OU home state</scope_note>
+    </dc-type>
+
+    <dc-type>
+        <schema>ou</schema>
+        <element>hometown</element>
+        <!-- unqualified -->
+        <scope_note>OU hometown</scope_note>
+    </dc-type>
+
+
+
+    <dc-type>
+        <schema>ou</schema>
+        <element>course</element>
+        <qualifier>dept</qualifier>
+        <scope_note>OU course abbreviation</scope_note>
+    </dc-type>
+
+    <dc-type>
+        <schema>ou</schema>
+        <element>course</element>
+        <qualifier>number</qualifier>
+	<scope_note>OU course number</scope_note>
+    </dc-type>
+
+
+  # add new dc fields
+  <dc-type>
+    <schema>dc</schema>
+    <element>contributor</element>
+    <qualifier>assignee</qualifier>
+    <scope_note>Assignee</scope_note>
+  </dc-type>
+
+  <dc-type>
+    <schema>dc</schema>
+    <element>contributor</element>
+    <qualifier>inventor</qualifier>
+    <scope_note>Inventor</scope_note>
+  </dc-type>
+
+  <dc-type>
+    <schema>dc</schema>
+    <element>contributor</element>
+    <qualifier>publisher</qualifier>
+    <scope_note>Publisher</scope_note>
+  </dc-type>
+
+  <dc-type>
+    <schema>dc</schema>
+    <element>date</element>
+    <qualifier>field</qualifier>
+    <scope_note>Date Filed</scope_note>
+  </dc-type>
+
+  <dc-type>
+    <schema>dc</schema>
+    <element>indentifier</element>
+    <qualifier>patentID</qualifier>
+    <scope_note>PatentID</scope_note>
+  </dc-type>
+
+  <dc-type>
+    <schema>dc</schema>
+    <element>subject</element>
+    <qualifier>cpcclasses</qualifier>
+    <scope_note>CPC Classes</scope_note>
+  </dc-type>
+
+  <dc-type>
+    <schema>dc</schema>
+    <element>subject</element>
+    <qualifier>otherusclasses</qualifier>
+    <scope_note>Other U.S. Classes</scope_note>
+  </dc-type>
+
+  <dc-type>
+    <schema>dc</schema>
+    <element>subject</element>
+    <qualifier>primaryusclass</qualifier>
+    <scope_note>Primary U.S. Class</scope_note>
+  </dc-type>
+
+  <dc-type>
+    <schema>dc</schema>
+    <element>description</element>
+    <qualifier>peerreview</qualifier>
+    <scope_note>Peer Review</scope_note>
+  </dc-type>
+
+  <dc-type>
+    <schema>dc</schema>
+    <element>description</element>
+    <qualifier>peerreviewnotes</qualifier>
+    <scope_note></scope_note>
+  </dc-type>
+
+  <dc-type>
+    <schema>dc</schema>
+    <element>identifier</element>
+    <qualifier>doi</qualifier>
+    <scope_note></scope_note>
+  </dc-type>
+
+</dspace-dc-types>

@@ -11,7 +11,7 @@
 if (submissions != null && submissions.count() > 0)
 {
 %>
-        <div class="panel panel-info vertical-carousel" data-itemstoshow="3">        
+        <div class="panel panel-info vertical-carousel" data-itemstoshow="1">
         <div class="panel-heading">
           <h3 class="panel-title">
           		<fmt:message key="jsp.collection-home.recentsub"/>

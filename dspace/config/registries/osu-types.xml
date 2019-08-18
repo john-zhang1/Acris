@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+
+<!--
+  - dublin-core-types.xml
+  -
+  - Version:  $Revision$
+  -
+  - Date:     $Date$
+  -
+  - Initial contents for Dublin Core type registry.  Once the registry has
+  - been loaded, this file becomes obsolete; the current version of the
+  - registry must be read from the database.
+  - Use org.dspace.content.MetadataSchema, org.dspace.content.MetadataField, org.dspace.content.MetadataValue instead.
+  - Omit <qualifier> tags for unqualified elements
+  -
+  - <dc-type>
+  -   <schema></schema>
+  -   <element></element>
+  -   <qualifier></qualifier>
+  -   <scope_note></scope_note>
+  - </dc-type>
+  -->
+
+<!-- start of XML -->
+
+<dspace-dc-types>
+
+    <dspace-header>
+        <title>OSU metadata types registry</title>
+    </dspace-header>
+
+    <dc-schema>
+        <name>osu</name>
+        <namespace>http://atmire.com/oklahoma/osu</namespace>
+    </dc-schema>
+
+    <dc-type>
+        <schema>osu</schema>
+        <element>audience</element>
+        <!-- unqualified -->
+        <scope_note></scope_note>
+    </dc-type>
+
+    <dc-type>
+        <schema>osu</schema>
+        <element>identifier</element>
+        <qualifier>cdm</qualifier>
+        <scope_note></scope_note>
+    </dc-type>
+
+    <dc-type>
+        <schema>osu</schema>
+        <element>identifier</element>
+        <qualifier>oclc</qualifier>
+        <scope_note></scope_note>
+    </dc-type>
+
+    <dc-type>
+        <schema>osu</schema>
+        <element>bitstream</element>
+        <qualifier>path</qualifier>
+        <scope_note></scope_note>
+    </dc-type>
+
+    <dc-type>
+        <schema>osu</schema>
+        <element>source</element>
+        <qualifier>location</qualifier>
+        <scope_note></scope_note>
+    </dc-type>
+
+    <dc-type>
+        <schema>osu</schema>
+        <element>bitstream</element>
+        <qualifier>filename</qualifier>
+        <scope_note></scope_note>
+    </dc-type>
+
+    <dc-type>
+        <schema>osu</schema>
+        <element>division</element>
+        <scope_note></scope_note>
+    </dc-type>
+
+    <dc-type>
+        <schema>osu</schema>
+        <element>department</element>
+        <scope_note></scope_note>
+    </dc-type>
+
+    <dc-type>
+        <schema>osu</schema>
+        <element>college</element>
+        <scope_note></scope_note>
+    </dc-type>
+
+    <dc-type>
+        <schema>osu</schema>
+        <element>filename</element>
+        <scope_note></scope_note>
+    </dc-type>
+
+
+    <dc-type>
+        <schema>osu</schema>
+        <element>order</element>
+        <qualifier>number</qualifier>
+        <scope_note></scope_note>
+    </dc-type>
+
+    <dc-type>
+        <schema>osu</schema>
+        <element>accesstype</element>
+        <scope_note></scope_note>
+    </dc-type>
+
+</dspace-dc-types>

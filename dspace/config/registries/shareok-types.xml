@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+
+<!--
+  - dublin-core-types.xml
+  -
+  - Version:  $Revision$
+  -
+  - Date:     $Date$
+  -
+  - Initial contents for Dublin Core type registry.  Once the registry has
+  - been loaded, this file becomes obsolete; the current version of the
+  - registry must be read from the database.
+  - Use org.dspace.content.MetadataSchema, org.dspace.content.MetadataField, org.dspace.content.MetadataValue instead.
+  - Omit <qualifier> tags for unqualified elements
+  -
+  - <dc-type>
+  -   <schema></schema>
+  -   <element></element>
+  -   <qualifier></qualifier>
+  -   <scope_note></scope_note>
+  - </dc-type>
+  -->
+
+<!-- start of XML -->
+
+<dspace-dc-types>
+
+    <dspace-header>
+        <title>Shareok metadata types registry</title>
+    </dspace-header>
+
+    <dc-schema>
+        <name>shareok</name>
+        <namespace>http://shareok.org</namespace>
+    </dc-schema>
+
+    <dc-type>
+        <schema>shareok</schema>
+        <element>nativefileaccess</element>
+        <!-- unqualified -->
+        <scope_note></scope_note>
+    </dc-type>
+
+    <dc-type>
+        <schema>shareok</schema>
+        <element>orcid</element>
+        <!-- unqualified -->
+        <scope_note>Ad hoc field for collecting the ORCID for the primary creator of a document.</scope_note>
+    </dc-type>
+</dspace-dc-types>

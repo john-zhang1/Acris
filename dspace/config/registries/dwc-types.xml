@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+
+
+<dspace-dc-types>
+
+  <dspace-header>
+    <title>DSpace Research NPDG Types Registry</title>
+    <contributor.author></contributor.author>
+  </dspace-header>
+
+  <dc-schema>
+      <name>dwc</name>
+      <namespace>http://rs.tdwg.org/dwc/terms/</namespace>
+  </dc-schema>
+
+  <dc-type>
+    <schema>dwc</schema>
+    <element>npdg</element>
+    <qualifier>sampleid</qualifier>
+    <scope_note></scope_note>
+  </dc-type>
+
+  <dc-type>
+    <schema>dwc</schema>
+    <element>npdg</element>
+    <qualifier>internalcode</qualifier>
+    <scope_note></scope_note>
+  </dc-type>
+
+  <dc-type>
+    <schema>dwc</schema>
+    <element>npdg</element>
+    <qualifier>datecollected</qualifier>
+    <scope_note></scope_note>
+  </dc-type>
+
+  <dc-type>
+    <schema>dwc</schema>
+    <element>npdg</element>
+    <qualifier>isolatesRBM</qualifier>
+    <scope_note></scope_note>
+  </dc-type>
+
+  <dc-type>
+    <schema>dwc</schema>
+    <element>npdg</element>
+    <qualifier>isolatesTV8</qualifier>
+    <scope_note></scope_note>
+  </dc-type>
+
+  <dc-type>
+    <schema>dwc</schema>
+    <element>npdg</element>
+    <qualifier>detail</qualifier>
+    <scope_note></scope_note>
+  </dc-type>
+
+  <dc-type>
+    <schema>dwc</schema>
+    <element>npdg</element>
+    <qualifier>spatial</qualifier>
+    <scope_note></scope_note>
+  </dc-type>
+
+  <dc-type>
+    <schema>dwc</schema>
+    <element>npdg</element>
+    <qualifier>homecity</qualifier>
+    <scope_note></scope_note>
+  </dc-type>
+
+  <dc-type>
+    <schema>dwc</schema>
+    <element>npdg</element>
+    <qualifier>homestate</qualifier>
+    <scope_note></scope_note>
+  </dc-type>
+
+  <dc-type>
+    <schema>dwc</schema>
+    <element>npdg</element>
+    <qualifier>homezip</qualifier>
+    <scope_note></scope_note>
+  </dc-type>
+
+  <dc-type>
+    <schema>dwc</schema>
+    <element>npdg</element>
+    <qualifier>imagestatus</qualifier>
+    <scope_note></scope_note>
+  </dc-type>
+
+</dspace-dc-types>
