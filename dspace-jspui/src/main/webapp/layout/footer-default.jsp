@@ -32,7 +32,7 @@
 	if (StringUtils.isNotBlank(mlinksConf)) {
 		mlinks = StringUtils.split(mlinksConf, ",");
 	}
-	
+
 	boolean showCommList = ConfigurationManager.getBooleanProperty("community-list.show.all",true);
 	boolean isRtl = StringUtils.isNotBlank(LocaleUIHelper.ifLtr(request, "","rtl"));
 %>
@@ -46,7 +46,7 @@
 	<div class="col-md-3">
                     <%= sidebar %>
     </div>
-    </div>       
+    </div>
 <%
     }
 %>
@@ -54,47 +54,60 @@
 <br/>
 </main>
             <%-- Page footer --%>
-            <footer class="navbar navbar-inverse navbar-bottom navbar-square">
-             <div class="container">
-	             <div class="row">
-					<div class="col-md-3 col-sm-6">
-	             		<div class="panel panel-default">
-	             			<div class="panel-heading">
-	             				<h6 class="panel-title"><fmt:message key="jsp.layout.footer-default.explore"/></h6>
-	             			</div>
-	             			<div class="panel-body">
-	             			<ul>
-	    <% 	if(showCommList){ %>
-           <li><a href="<%= request.getContextPath() %>/community-list"><fmt:message key="jsp.layout.navbar-default.communities-collections"/></a></li>
-        <%	} 
-            for (String mlink : mlinks) { 
-         %>
-           <c:set var="fmtkey">
-           jsp.layout.navbar-default.cris.<%= mlink.trim() %>
-           </c:set>
-           <li><a href="<%= request.getContextPath() %>/cris/explore/<%= mlink.trim() %>"><fmt:message key="${fmtkey}"/></a></li>
-           <% } %>
-							</ul>
-	             			</div>
-	             		</div>
-	             	</div>
-	             	<div class="col-md-9 col-sm-6">
-	             		<%= footerNews %>
-	             	</div>
-	            </div> 
-            </div>
-			<div class="container-fluid extra-footer row">
-      			<div id="footer_feedback" class="col-sm-4 pull-<%= isRtl ? "right":"left" %>">                                    
-                     <a href="<%= request.getContextPath() %>/feedback"><fmt:message key="jsp.layout.footer-default.feedback"/></a>
+        <footer class="container navbar navbar-inverse navbar-bottom">
+            <div class="row">
+                <div class="col-md-4 col-sm-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h6 class="panel-title"><fmt:message key="jsp.layout.footer-default.explore"/></h6>
+                        </div>
+                        <div class="panel-body">
+                        <ul>
+                <% 	if(showCommList){ %>
+                <li><a href="<%= request.getContextPath() %>/community-list"><fmt:message key="jsp.layout.navbar-default.communities-collections"/></a></li>
+                <%	}
+                    for (String mlink : mlinks) {
+                %>
+                <c:set var="fmtkey">
+                jsp.layout.navbar-default.cris.<%= mlink.trim() %>
+                </c:set>
+                <li><a href="<%= request.getContextPath() %>/cris/explore/<%= mlink.trim() %>"><fmt:message key="${fmtkey}"/></a></li>
+                    <% } %>
+                        </ul>
+                    </div>
                 </div>
-	           	<div id="designedby" class="col-sm-8 text-<%= isRtl ? "left": "right" %>">
-            	 	<fmt:message key="jsp.layout.footer-default.text"/> - 
-            	 	<fmt:message key="jsp.layout.footer-default.version-by"/> 
-            	 	<a href="http://www.4science.it/en/dspace-and-dspace-cris-services/">
-            	 		<img src="<%= request.getContextPath() %>/image/logo-4science-small.png"
-                                    alt="Logo 4SCIENCE" height="32px"/></a>
-				</div>
-			</div>
-	    </footer>
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h6 class="panel-title">Useful Links</h6>
+                        </div>
+                        <div class="panel-body">
+                        <ul>
+                                <li><a target="_blank" href="#">About</a></li>
+                                <li><a target="_blank" href="#">News & Events</a></li>
+                                <li><a target="_blank" href="#">Digital Learning</a></li>
+                                <li><a target="_blank" href="#">Digital Research</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h6 class="panel-title">Submit an Item</h6>
+                        </div>
+                        <div class="panel-body">
+                            <div>Submit work you want to share</div><br/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <%-- <div class="col-md-9 col-sm-6">
+                <%= footerNews %>
+            </div> --%>
+        </footer>
     </body>
 </html>

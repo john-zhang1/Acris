@@ -1,0 +1,23 @@
+#!/bin/bash
+
+DIR=/dspace/webapps/jspui/static/json
+
+if [ ! -d "$DIR" ]; then
+    mkdir /dspace/webapps/jspui/static/json/
+fi
+
+# total item views
+# curl -g "http://localhost:8080/solr/statistics/select?indent=on&rows=2147483647&q=type:2+AND+isBot:false&fl=id,latitude,longitude,time,ip,city,countryCode,owningColl&wt=json&omitHeader=true&fq=latitude:[*+TO+*]+-ip:121.46.244.138+-ip:5.1.1.34" -o /dspace/webapps/jspui/static/json/item-view.json
+# No. of item views in past 30 days
+# curl -g "http://localhost:8080/solr/statistics/select?indent=on&rows=2147483647&q=type:2+AND+isBot:false&fl=id,latitude,longitude,time,ip,city,countryCode,owningColl&wt=json&omitHeader=true&fq=latitude:[*+TO+*]+-ip:121.46.244.138+-ip:5.1.1.34+time:[NOW-30DAY/DAY+TO+NOW]" -o /dspace/webapps/jspui/static/json/item-view.json
+curl -g "http://localhost:8080/solr/statistics/select?indent=on&rows=2147483647&q=type:2+AND+isBot:false&fl=id,latitude,longitude,time,ip,city,countryCode,owningColl&wt=json&omitHeader=true&fq=latitude:[*+TO+*]+time:[NOW-30DAY+TO+*]" -o /dspace/webapps/jspui/static/json/item-view.json
+# No. of item views
+curl -g  "http://localhost:8080/solr/statistics/select?indent=on&rows=0&q=type:2+AND+isBot:false&fl=id,latitude,longitude,time,ip,city,countryCode,owningColl&wt=json&omitHeader=true" -o /dspace/webapps/jspui/static/json/item-view-total.json
+# Total items
+curl "http://localhost:8080/solr/search/select?indent=on&rows=2147483647&q=search.resourcetype:2&fl=dc.title,dc.contributor.author,dc.creator,location.coll,search.resourceid,dc.identifier.uri&wt=json&omitHeader=true" -o /dspace/webapps/jspui/static/json/items.json
+# Total collections
+curl "http://localhost:8080/solr/search/select?indent=on&rows=2147483647&q=search.resourcetype:3&wt=json&fl=dc.title,search.resourceid,handle&omitHeader=true" -o /dspace/webapps/jspui/static/json/collections.json
+# Total bitstream downloads
+curl -g "http://localhost:8080/solr/statistics/select?indent=on&rows=0&q=type:0+AND+isBot:false&wt=json&omitHeader=true&fq=bundleName:ORIGINAL" -o /dspace/webapps/jspui/static/json/downloads.json
+# Item views by month
+curl -g "http://localhost:8080/solr/statistics/select?indent=on&rows=0&facet.range=time&facet=true&facet.range.start=NOW-3MONTH/MONTH&facet.range.end=NOW&facet.range.gap=%2B1MONTH&q=type:2+AND+isBot:false&fq=latitude:[*+TO+*]&wt=json&omitHeader=true" -o /dspace/webapps/jspui/static/json/item-view-monthly.json

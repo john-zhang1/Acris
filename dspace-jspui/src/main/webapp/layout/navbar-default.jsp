@@ -78,7 +78,7 @@
  // get the locale languages
     Locale[] supportedLocales = I18nUtil.getSupportedLocales();
     Locale sessionLocale = UIUtil.getSessionLocale(request);
-    boolean isRtl = StringUtils.isNotBlank(LocaleUIHelper.ifLtr(request, "","rtl"));    
+    boolean isRtl = StringUtils.isNotBlank(LocaleUIHelper.ifLtr(request, "","rtl"));
 
     String[] mlinks = new String[0];
     String mlinksConf = ConfigurationManager.getProperty("cris", "navbar.cris-entities");
@@ -96,13 +96,61 @@
            <span class="icon-bar"></span>
          </button>
        </div>
-       <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+       <nav class="collapse navbar-collapse bs-navbar-collapse navbar-default navbar-toggleable-sm bg-inverse">
+        <ul id="top-menu" class="nav navbar-nav navbar-<%= isRtl ? "right" : "left"%>">
+            <li class="pull-<%= isRtl ? "right" : "left"%>">
+                <a class="navbar-brand" href="<%= request.getContextPath()%>/">
+                    <img height="45" src="<%= request.getContextPath()%>/image/logo.gif" alt="DSpace logo" />
+                </a>
+            </li>
+            <li id="navbar-brand-title" class="pull-left" style="padding-top: 5px;">
+                <h5>DSpace-CRIS</h5>
+                <h5>Extension of DSpace</h5>
+              </li>
+          </ul>
+        <div class="nav top-menu-library-div navbar-<%= isRtl ? "left" : "right"%>">
+            <ul class="nav navbar-nav navbar-<%= isRtl ? "left" : "right"%>">
+                <%
+                    if (user != null) {
+                %>
+                <li id="userloggedin-top-menu" class="dropdown">
+                    <a href="#" class="dropdown-toggle <%= isRtl ? "" : "text-right"%>" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> <fmt:message key="jsp.layout.navbar-default.loggedin">
+                            <fmt:param><%= StringUtils.abbreviate(navbarEmail, 20)%></fmt:param>
+                        </fmt:message> <b class="caret"></b></a>
+
+
+                    <ul class="dropdown-menu">
+                        <li><a href="<%= request.getContextPath()%>/mydspace"><fmt:message key="jsp.layout.navbar-default.users"/></a></li>
+    
+                        <%
+                            if (isAdmin) {
+                        %>
+                        <li class="divider"></li>
+                        <li><a href="<%= request.getContextPath()%>/dspace-admin"><fmt:message key="jsp.administer"/></a></li>
+                            <%
+                                }
+                                if (user != null) {
+                            %>
+                        <li><a href="<%= request.getContextPath()%>/logout"><span class="glyphicon glyphicon-log-out"></span> <fmt:message key="jsp.layout.navbar-default.logout"/></a></li>
+                            <% }%>
+                    </ul>
+                  </li>
+                    <%
+                  } else {
+                  %>
+                  <li id="user-top-menu" class="dropdown">
+                      <a href="<%= request.getContextPath()%>/mydspace"><span class="glyphicon glyphicon-user"></span> <fmt:message key="jsp.layout.navbar-default.signin"/></b></a>
+                          <% }%>
+                  </li>
+            </ul>
+        </div>
+       </nav>
+       <nav class="collapse navbar-collapse navbar-wire bs-navbar-collapse" role="navigation">
          <ul id="top-menu" class="nav navbar-nav navbar-<%= isRtl ? "right":"left"%>">
-           <li class="pull-<%= isRtl ? "right":"left"%>"><a class="navbar-brand" href="<%= request.getContextPath() %>/"><img height="25" src="<%= request.getContextPath() %>/image/dspace-logo-only.png" alt="DSpace logo" /></a></li>
            <li id="home-top-menu" class="pull-<%= isRtl ? "right":"left"%>   <%= currentPage.endsWith("/home.jsp")? 
         		   "active" : "" %>"><a href="<%= request.getContextPath() %>/"><fmt:message key="jsp.layout.navbar-default.home"/></a></li>
 		  <% if(showCommList){ %>
-		   <li id="communitylist-top-menu" class="<%= currentPage.endsWith("/community-list")? 
+		   <li id="communitylist-top-menu1" class="<%= currentPage.endsWith("/community-list")?
         		   "active" : "" %>"><a href="<%= request.getContextPath() %>/community-list"><fmt:message key="jsp.layout.navbar-default.communities-collections"/></a></li>
         		 <% }%> 
            <% for (String mlink : mlinks) { %>
@@ -126,7 +174,9 @@
            </c:set>
            <li class="<c:if test="${exploremlink == location}">active</c:if>"><a href="<%= request.getContextPath() %>/cris/explore/<%= mlink.trim() %>"><fmt:message key="${fmtkey}"/></a></li>
            <% } %>
-           </ul>
+           <li class="<%= currentPage.endsWith("/about.jsp")? 
+            "active" : "" %>"><a href="<%= request.getContextPath() %>/#"><fmt:message key="jsp.layout.navbar-default.cris.theses"/></a></li>
+        </ul>
            </li>
  <%
  if (extraNavbarData != null)
@@ -136,7 +186,6 @@
 <%
  }
 %>
-          <li id="help-top-menu" class="<%= ( currentPage.endsWith( "/help" ) ? "active" : "" ) %>"><dspace:popup page="<%= LocaleSupport.getLocalizedMessage(pageContext, \"help.index\") %>"><fmt:message key="jsp.layout.navbar-default.help"/></dspace:popup></li>
        </ul>
 
  <%-- if (supportedLocales != null && supportedLocales.length > 1)
@@ -154,7 +203,7 @@
       <li>
         <a onclick="javascript:document.repost.locale.value='<%=supportedLocales[i].toString()%>';
                   document.repost.submit();" href="?locale=<%=supportedLocales[i].toString()%>">
-          <%= LocaleSupport.getLocalizedMessage(pageContext, "jsp.layout.navbar-default.language."+supportedLocales[i].toString()) %>                  
+          <%= LocaleSupport.getLocalizedMessage(pageContext, "jsp.layout.navbar-default.language."+supportedLocales[i].toString()) %>
      
        </a>
       </li>
@@ -169,64 +218,37 @@
    }
  %>
  --%>
-       <div class="nav navbar-nav navbar-<%= isRtl ? "left" : "right" %>">
-		<ul class="nav navbar-nav navbar-<%= isRtl ? "left" : "right" %>">
-                    <li id="search-top-menu" class="dropdown">
-           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-search"></span><b class="caret"></b></a>
-          <div class="dropdown-menu">
-          
-	<%-- Search Box --%>
-	<form id="formsearch-top-menu" method="get" action="<%= request.getContextPath() %>/global-search" class="navbar-form navbar-<%= isRtl ? "left" : "right" %>" scope="search">		
-	    <div class="form-group">
-          <input type="text" class="form-control" placeholder="<fmt:message key="jsp.layout.navbar-default.search"/>" name="query" id="tequery" size="25"/>
-        </div>
-        <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span></button>
-<%--               <br/><a href="<%= request.getContextPath() %>/advanced-search"><fmt:message key="jsp.layout.navbar-default.advanced"/></a>
-<%
+
+  <div class="nav navbar-nav navbar-<%= isRtl ? "left" : "right" %>">
+    <ul class="nav navbar-nav navbar-<%= isRtl ? "left" : "right" %>">
+      <li id="search-top-menu" class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-search"></span><b
+            class="caret"></b></a>
+        <div class="dropdown-menu">
+
+          <%-- Search Box --%>
+          <form id="formsearch-top-menu" method="get" action="<%= request.getContextPath() %>/global-search"
+            class="navbar-form navbar-<%= isRtl ? "left" : "right" %>" scope="search">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="<fmt:message key="jsp.layout.navbar-default.search" />" name="query" id="tequery" size="25"/>
+            </div>
+            <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span></button>
+            <%--               <br/><a href="<%= request.getContextPath() %>/advanced-search">
+            <fmt:message key="jsp.layout.navbar-default.advanced" /></a>
+            <%
 			if (ConfigurationManager.getBooleanProperty("webui.controlledvocabulary.enable"))
 			{
-%>        
-              <br/><a href="<%= request.getContextPath() %>/subject-search"><fmt:message key="jsp.layout.navbar-default.subjectsearch"/></a>
-<%
+%>
+            <br /><a href="<%= request.getContextPath() %>/subject-search">
+              <fmt:message key="jsp.layout.navbar-default.subjectsearch" /></a>
+            <%
             }
 %> --%>
-	</form>
-	
-          </div>
-          </li>
-         <%
-    if (user != null)
-    {
-		%>
-		<li id="userloggedin-top-menu" class="dropdown">
-		<a href="#" class="dropdown-toggle <%= isRtl ? "" : "text-right" %>" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> <fmt:message key="jsp.layout.navbar-default.loggedin">
-		      <fmt:param><%= StringUtils.abbreviate(navbarEmail, 20) %></fmt:param>
-		  </fmt:message> <b class="caret"></b></a>
-		<%
-    } else {
-		%>
-			<li id="user-top-menu" class="dropdown">
-             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> <fmt:message key="jsp.layout.navbar-default.sign"/> <b class="caret"></b></a>
-	<% } %>             
-             <ul class="dropdown-menu">
-               <li><a href="<%= request.getContextPath() %>/mydspace"><fmt:message key="jsp.layout.navbar-default.users"/></a></li>
-               <li><a href="<%= request.getContextPath() %>/subscribe"><fmt:message key="jsp.layout.navbar-default.receive"/></a></li>
-               <li><a href="<%= request.getContextPath() %>/profile"><fmt:message key="jsp.layout.navbar-default.edit"/></a></li>
+          </form>
 
-		<%
-		  if (isAdmin)
-		  {
-		%>
-			   <li class="divider"></li>  
-               <li><a href="<%= request.getContextPath() %>/dspace-admin"><fmt:message key="jsp.administer"/></a></li>
-		<%
-		  }
-		  if (user != null) {
-		%>
-		<li><a href="<%= request.getContextPath() %>/logout"><span class="glyphicon glyphicon-log-out"></span> <fmt:message key="jsp.layout.navbar-default.logout"/></a></li>
-		<% } %>
-             </ul>
-           </li>
-          </ul>
-	</div>
-    </nav>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+       </nav>

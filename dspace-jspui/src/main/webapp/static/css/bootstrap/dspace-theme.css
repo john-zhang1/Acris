@@ -5,294 +5,560 @@
  *
  * http://www.dspace.org/license/
  */
-.banner img {background-color: #FFFFFF;padding:15px;margin-top:20px;}
-.brand h4 {color: #999999}
-#communitylist-top-menu a, #userloggedin-top-menu a {padding-top:0.3em;padding-bottom:0.3em;}
-#user-top-menu, #userloggedin-top-menu {margin-right: 15px;}
-footer {padding-top: 1em;}
-footer.navbar-inverse {color: white;}
-footer .extra-footer{background-color: black; color:white;}
-#designedby img {margin-right: 5px;}
-#formsearch-top-menu {width: 310px;}
-div.panel.panel-primary ul.list-group li.list-group-item.active {border-left: 3px solid #428bca; background: white;}
-div.panel.panel-primary ul.list-group li.list-group-item.active .badge {background-color: #428bca;}
-ol.breadcrumb li {color: white; font-style: italic;}
-ol.breadcrumb li a {color: white; font-weight: bold; font-style: normal;}
-body.undernavigation {overflow-x: hidden;
-// padding-top: 65px;
-}
-.navbar-square {border-radius: 0px;}
-#content {padding-bottom:60px;}
-#designedby {padding-top: 5px; padding-bottom:5px;}
-#footer_feedback {padding-top: 12px;}
-#footer_feedback > a {margin-left:5px;}
-input[type="file"] {display: block;height: auto;}
-div.panel-primary div.panel-heading a {color: white;}
-/* This magic gets the 16x16 icon to show up.. setting height/width didn't
-   do it, but adding padding actually made it show up. */
-img.ds-authority-confidence,
-span.ds-authority-confidence
-{ width: 16px; height: 16px; margin: 5px; background-repeat: no-repeat;
-  padding: 0px 2px; vertical-align: bottom; color: transparent;}
-img.ds-authority-confidence.cf-unset,
-span.ds-authority-confidence.cf-unset
-  { background-image: url(../../../image/authority/bug.png);}
-img.ds-authority-confidence.cf-novalue,
-span.ds-authority-confidence.cf-novalue
-  { background-image: url(../../../image/confidence/0-unauthored.gif);}
-img.ds-authority-confidence.cf-rejected,
-img.ds-authority-confidence.cf-failed,
-span.ds-authority-confidence.cf-rejected,
-span.ds-authority-confidence.cf-failed
-  { background-image: url(../../../image/confidence/2-errortriangle.gif); }
-img.ds-authority-confidence.cf-notfound,
-span.ds-authority-confidence.cf-notfound
-  { background-image: url(../../../image/confidence/3-thumb1.gif); }
-img.ds-authority-confidence.cf-ambiguous,
-span.ds-authority-confidence.cf-ambiguous
-  { background-image: url(../../../image/confidence/4-question.gif); }
-img.ds-authority-confidence.cf-uncertain,
-span.ds-authority-confidence.cf-uncertain
-  { background-image: url(../../../image/confidence/5-pinion.gif); }
-img.ds-authority-confidence.cf-accepted,
-span.ds-authority-confidence.cf-accepted
-  { background-image: url(../../../image/confidence/6-greencheck.gif); }
+ .banner img {background-color: #FFFFFF;padding:15px;margin-top:20px;}
+ .brand h4 {color: #999999}
+ #communitylist-top-menu a, #userloggedin-top-menu a {padding-top:0.3em;padding-bottom:0.3em;}
+ #user-top-menu, #userloggedin-top-menu {margin-right: 15px;}
+ footer {padding-top: 2.5em;}
+ footer.navbar-inverse {color: white;}
+ footer .extra-footer{background-color: black; color:white;}
+ #designedby img {margin-right: 5px;}
+ #formsearch-top-menu {width: 310px;}
+ div.panel.panel-primary ul.list-group li.list-group-item.active {border-left: 3px solid #428bca; background: white;}
+ div.panel.panel-primary ul.list-group li.list-group-item.active .badge {background-color: #428bca;}
+ ol.breadcrumb li {color: white; font-style: italic;}
+ ol.breadcrumb li a {color: white; font-weight: bold; font-style: normal;}
+ body.undernavigation {overflow-x: hidden;}
 
-/* hide authority-value inputs in forms */
-input.ds-authority-value { display:none; }
+ .navbar-square {border-radius: 0px;}
+ #content {padding-bottom:60px;}
+ #designedby {padding-top: 5px; padding-bottom:5px;}
+ #footer_feedback {padding-top: 5px;}
+ #footer_feedback > a {margin-left:5px;}
+ input[type="file"] {display: block;height: auto;}
+ div.panel-primary div.panel-heading a {color: white;}
+ /* This magic gets the 16x16 icon to show up.. setting height/width didn't
+    do it, but adding padding actually made it show up. */
+ img.ds-authority-confidence,
+ span.ds-authority-confidence
+ { width: 16px; height: 16px; margin: 5px; background-repeat: no-repeat;
+   padding: 0px 2px; vertical-align: bottom; color: transparent;}
+ img.ds-authority-confidence.cf-unset,
+ span.ds-authority-confidence.cf-unset
+   { background-image: url(../../../image/authority/bug.png);}
+ img.ds-authority-confidence.cf-novalue,
+ span.ds-authority-confidence.cf-novalue
+   { background-image: url(../../../image/confidence/0-unauthored.gif);}
+ img.ds-authority-confidence.cf-rejected,
+ img.ds-authority-confidence.cf-failed,
+ span.ds-authority-confidence.cf-rejected,
+ span.ds-authority-confidence.cf-failed
+   { background-image: url(../../../image/confidence/2-errortriangle.gif); }
+ img.ds-authority-confidence.cf-notfound,
+ span.ds-authority-confidence.cf-notfound
+   { background-image: url(../../../image/confidence/3-thumb1.gif); }
+ img.ds-authority-confidence.cf-ambiguous,
+ span.ds-authority-confidence.cf-ambiguous
+   { background-image: url(../../../image/confidence/4-question.gif); }
+ img.ds-authority-confidence.cf-uncertain,
+ span.ds-authority-confidence.cf-uncertain
+   { background-image: url(../../../image/confidence/5-pinion.gif); }
+ img.ds-authority-confidence.cf-accepted,
+ span.ds-authority-confidence.cf-accepted
+   { background-image: url(../../../image/confidence/6-greencheck.gif); }
+ 
+ /* hide authority-value inputs in forms */
+ input.ds-authority-value { display:none; }
+ 
+ /** XXX Change to this to get the authority value to show up for debugging:
+  input.ds-authority-value { display:inline; }
+ **/
+ 
+ /* for edit-item-form lock button */
+ input.ds-authority-lock
+   { vertical-align: bottom; height: 24px; width: 24px; margin-right: 8px;
+     background-repeat: no-repeat; background-color: transparent; }
+ input.ds-authority-lock.is-locked
+   { background-image: url(../../../image/lock24.png); }
+ input.ds-authority-lock.is-unlocked
+   { background-image: url(../../../image/unlock24.png); }
+ 
+ /* field required in submission */
+ 
+ .tab-content{
+         border: 1px solid #ddd;
+         border-top: 0;
+         background-color: #fff;
+ }
+ 
+ .menu-global-processor{
+         z-index: 1001;
+ }
+ .label-required:after { content:" *"; }
+ .browse_range { text-align: center; }
+ .prev-next-links { text-align: center; }
+ 
+ div.tagcloud {
+     width:100%;
+     text-align:center
+ }
+ 
+ div.tagcloud .tagcloud_1{
+     color: rgb(217, 108, 39); 
+     font-weight: normal; 
+     margin-right: 5px;
+ }
+ 
+ div.tagcloud .tagcloud_2{
+     color: rgb(66, 66, 66); 
+     font-weight: normal; 
+     margin-right: 5px;
+ }
+ 
+ div.tagcloud .tagcloud_3{
+     color: rgb(129, 129, 131); 
+     font-weight: normal; 
+     margin-right: 5px;
+ }
+ 
+ div.batchimport-info {
+     color: gray;
+ }
+ 
+ div.batchimport-info  a {
+     color:#47a447; 
+     font-weight: bold;
+ }
+ 
+ span.batchimport-error-tab {
+     padding-left:10px;
+ }
+ 
+ span.batchimport-error-caused {
+     font-weight:bold;
+ }
+ 
+ div.carousel-inner div.item div.list-group-item {
+     background-color: inherit;
+ }
+ 
+ div.carousel-inner div.item div.list-group-item div.list-group-item-heading h4.text-primary {
+     color: inherit;
+ }
+ 
+ 
+ .metric-ranking > span {
+     display: block;
+     height: 1.7em;
+     width: 1.7em;
+     line-height: 1.7em;
+     -moz-border-radius: 0.85em;
+     border-radius: 0.85em;
+     background-color: #f0ad4e;
+     color: white;
+     text-align: center;
+     font-size: 0.75em;
+ }
+ .metric-ranking {
+     display: block;
+     height: 1.7em;
+     width: 1.7em;
+     padding: 0.2em;
+     line-height: 1.7em;
+     -moz-border-radius: 0.85em;
+     border-radius: 0.85em;
+     background-color: white;
+     color: white;
+     text-align: center;
+ }
+ .metric-counter {
+     font-size: 1.5em;
+     font-family: sans-serif;
+     font-weight: bolder;
+ }
+ .media > .media-heading {
+     text-transform: uppercase;
+ }
+ .media > .media-body > .row {
+     text-transform: uppercase;
+ }
+ 
+ .media {
+     padding: 1em;
+     border-radius: 0.4em; 
+ }
+ 
+ .media.download, .media.download_aggregate, .media.download_count,
+ .media.download a, .media.download_aggregate a, .media.download_count a {
+     color: white;
+     background: #c0392b;
+ }
+ .media.view, .media.view_aggregate, .media.view_count,
+ .media.view a, .media.view_aggregate a, .media.view_count a {
+     color: white;
+     background: #72c02c;
+ }
+ .media.scopus, .media.scopus_aggregate, .media.scopus_count,
+ .media.scopus a, .media.scopus_aggregate a, .media.scopus_count a {
+     color: white;
+     background: #ff7800;
+ }
+ .media.pubmed, .media.pubmed_aggregate, .media.pubmed_count,
+ .media.pubmed a, .media.pubmed_aggregate a, .media.pubmed_count a {
+     color: white;
+     background: #141927;
+ }
+ .media.wos, .media.wos_aggregate, .media.wos_count,
+ .media.wos a, .media.wos_aggregate a, .media.wos_count a {
+     color: white;
+     background: #505050;
+ }
+ .media.google, .media.google a {
+     color: white;
+     background: #4285f4;
+ }
+ .media.altmetric {
+     background: white;
+     color: #c7254e;
+     border: 3px solid #c7254e;
+ }
+ .media > .media-left > i.fa {
+     font-size: 3em;
+ }
+ 
+ .col-lg-12 > .media, .col-xs-12 > .media  {margin-bottom: 1em; width: 100%;}
+ .media-left {float:left;}
+ 
+ #collapseFacet { background-color: whitesmoke;}
+ #export-biblio-panel { background-color: whitesmoke;}
+ 
+ footer.navbar-bottom {
+     z-index: 0;
+ }
+ 
+ .span-filter-applied-bordered {   
+ }
+ 
+ .a-filter-applied-remove {   
+ }
+ 
+ .media.identifier_signature {
+     color: white;
+     background: #505050;
+ }
+ 
+ .media.title_signature {
+     color: white;
+     background: #4285f4;
+ }
+ 
+ .media.identifier_signature a {
+     color: white;
+ }
+ 
+ .media.title_signature a {
+     color: white;
+ }
+ 
+ .tabsignature {
+     padding: 1em;
+ }
+ 
+ .media.dedup, .media.dedup a {
+     color: white;
+     background: gray;
+ }
+ 
+ .container{
+     background-color: #fff;
+ }
+ 
+ ol.breadcrumb li a {
+     color: white;
+     font-weight: bold;
+     font-style: normal;
+ }
+         
+ #content{
+     margin-top: -21px;
+     padding-bottom: 0px;
+ }
+ 
+ footer.navbar{
+     border:0px;
+ }
+ footer .container {
+     background: transparent;
+ }
+ 
+ .form-control{
+     color:#000;
+ }
+ 
+ .modal.in .modal-dialog {
+     margin:0px auto;
+     left: auto;
+     right:auto;
+ }
+ .fullheight {min-height: 35em;}
+ .container.fullheight {padding-bottom: 20px;}
+ 
+ .metadata-divider {
+     margin-top:5px;
+     margin-bottom:5px;
+ }
+ 
+ .top-menu-library-div {
+     margin-top:20px;
+ }
+ 
+ .carousel-control.left, .carousel-control.right {
+    background-image:none !important;
+    filter:none !important;
+ }
+ 
+ .top-news {
+     padding-top: 0px;
+ }
+ 
+ .popover.fade.in {
+     min-width:250px;
+ }
+ 
+ #search-top-menu {
+     margin-right: 15px;
+ }
+ 
+ .panel-primary {
+     border-color: #fff;
+ }
+ 
+ .panel > .panel-heading {
+     padding: 10px 0px;
+     background: transparent;
+     color: black;
+     border-bottom: 2px #fff solid;
+ }
+ 
+ /* Custom navbar */
+ .navbar-wire {
+     background-color: #4C5662;
+     border-color: #021850
+ }
+ 
+ .navbar-wire .navbar-brand {
+     color: #777
+ }
+ 
+ .navbar-wire .navbar-brand:hover, .navbar-wire .navbar-brand:focus {
+     color: #5e5e5e;
+     background-color: transparent
+ }
+ 
+ .navbar-wire .navbar-text {
+     color: #777
+ }
+ 
+ .navbar-wire .navbar-nav > li > a {
+     color: #cdcdcd
+ }
+ 
+ .navbar-wire .navbar-nav > li > a:hover, .navbar-wire .navbar-nav > li > a:focus {
+     color: #fff;
+     background-color: transparent
+ }
+ 
+ .navbar-wire .navbar-nav > .active > a, .navbar-wire .navbar-nav > .active > a:hover,
+ .navbar-wire .navbar-nav > .active > a:focus {
+     color: #000;
+     background-color: #eee
+ }
+ 
+ .navbar-wire .navbar-nav > .disabled > a, .navbar-wire .navbar-nav > .disabled > a:hover,
+ .navbar-wire .navbar-nav > .disabled > a:focus {
+     color: #ccc;
+     background-color: transparent
+ }
+ 
+ .navbar-wire .navbar-toggle {
+     border-color: #ddd
+ }
 
-/** XXX Change to this to get the authority value to show up for debugging:
- input.ds-authority-value { display:inline; }
-**/
+ .navbar-wire > .nav > li:hover{background:rgba(254,213,1,0.9);}
 
-/* for edit-item-form lock button */
-input.ds-authority-lock
-  { vertical-align: bottom; height: 24px; width: 24px; margin-right: 8px;
-    background-repeat: no-repeat; background-color: transparent; }
-input.ds-authority-lock.is-locked
-  { background-image: url(../../../image/lock24.png); }
-input.ds-authority-lock.is-unlocked
-  { background-image: url(../../../image/unlock24.png); }
-
-/* field required in submission */
-
-.tab-content{
-		border: 1px solid #ddd;
-		border-top: 0;
-		background-color: #fff;
-}
-
-.menu-global-processor{
-		z-index: 1001;
-}
-.label-required:after { content:" *"; }
-.browse_range { text-align: center; }
-.prev-next-links { text-align: center; }
-
-div.tagcloud {
-	width:100%;
-	text-align:center
-}
-
-div.tagcloud .tagcloud_1{
-	color: rgb(217, 108, 39); 
-	font-weight: normal; 
-	margin-right: 5px;
-}
-
-div.tagcloud .tagcloud_2{
-	color: rgb(66, 66, 66); 
-	font-weight: normal; 
-	margin-right: 5px;
-}
-
-div.tagcloud .tagcloud_3{
-	color: rgb(129, 129, 131); 
-	font-weight: normal; 
-	margin-right: 5px;
-}
-
-div.batchimport-info {
-	color: gray;
-}
-
-div.batchimport-info  a {
-	color:#47a447; 
-	font-weight: bold;
-}
-
-span.batchimport-error-tab {
-	padding-left:10px;
-}
-
-span.batchimport-error-caused {
-	font-weight:bold;
-}
-
-div.carousel-inner div.item div.list-group-item {
-	background-color: inherit;
-}
-
-div.carousel-inner div.item div.list-group-item div.list-group-item-heading h4.text-primary {
-	color: inherit;
+ .navbar-wire .navbar-toggle:hover, .navbar-wire .navbar-toggle:focus {
+     background-color: #ddd
+ }
+ 
+ .navbar-wire .navbar-toggle .icon-bar {
+     background-color: #ccc
+ }
+ 
+ .navbar-wire .navbar-collapse, .navbar-wire .navbar-form {
+     border-color: #e6e6e6
+ }
+ 
+ .navbar-wire .navbar-nav > .dropdown > a:hover .caret, .navbar-wire .navbar-nav > .dropdown > a:focus .caret {
+     border-top-color: #fff;
+     border-bottom-color: #fff
+ }
+ 
+ .navbar-wire .navbar-nav > .open > a, .navbar-wire .navbar-nav > .open > a:hover,
+ .navbar-wire .navbar-nav > .open > a:focus {
+     color: #fff;
+     background-color: #4C5662
+ }
+ 
+ .navbar-wire .navbar-nav > .open > a .caret, .navbar-wire .navbar-nav > .open > a:hover .caret,
+ .navbar-wire .navbar-nav > .open > a:focus .caret {
+     border-top-color: #fff;
+     border-bottom-color: #555
+ }
+ 
+ .navbar-wire .navbar-nav > .dropdown > a .caret {
+     border-top-color: #cdcdcd;
+     border-bottom-color: #cdcdcd
+ }
+ 
+ @media(max-width:767px) {
+     .navbar-wire .navbar-nav .open .dropdown-menu > li > a {
+         color: #777
+     }
+ 
+     .navbar-wire .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-wire .navbar-nav .open .dropdown-menu > li > a:focus {
+         color: #333;
+         background-color: transparent
+     }
+ 
+     .navbar-wire .navbar-nav .open .dropdown-menu > .active > a, .navbar-wire .navbar-nav .open .dropdown-menu > .active > a:hover,
+     .navbar-wire .navbar-nav .open .dropdown-menu > .active > a:focus {
+         color: #555;
+         background-color: #4C5662
+     }
+ 
+     .navbar-wire .navbar-nav .open .dropdown-menu > .disabled > a, .navbar-wire .navbar-nav .open .dropdown-menu > .disabled > a:hover,
+     .navbar-wire .navbar-nav .open .dropdown-menu > .disabled > a:focus {
+         color: #fff;
+         background-color: transparent
+     }
+ }
+ 
+ .navbar-wire .navbar-link {
+     color: #800000
+ }
+ 
+ .navbar-wire .navbar-link:hover {
+     color: #800000
+ }
+ 
+ .btn-primary, .btn-primary:active, .btn-primary:visited {
+    background-color: #4C5662 !important;
+    background-image: -webkit-gradient(linear, left 0, left 100%, from(#4C5662), to(#4C5662));
+    border-color: #4C5662;
+    color: #fff;
 }
 
-
-.metric-ranking > span {
-    display: block;
-    height: 1.7em;
-    width: 1.7em;
-    line-height: 1.7em;
-    -moz-border-radius: 0.85em;
-    border-radius: 0.85em;
-    background-color: #f0ad4e;
-    color: white;
-    text-align: center;
-    font-size: 0.75em;
-}
-.metric-ranking {
-    display: block;
-    height: 1.7em;
-    width: 1.7em;
-    padding: 0.2em;
-    line-height: 1.7em;
-    -moz-border-radius: 0.85em;
-    border-radius: 0.85em;
-    background-color: white;
-    color: white;
-    text-align: center;
-}
-.metric-counter {
-	font-size: 1.5em;
-	font-family: sans-serif;
-	font-weight: bolder;
-}
-.media > .media-heading {
-	text-transform: uppercase;
-}
-.media > .media-body > .row {
-	text-transform: uppercase;
+.btn-primary:hover {
+    background-color: #fed501;
+    background-image: -webkit-gradient(linear, left 0, left 100%, from(#fed501), to(#fed501));
+    border-color: #fed501;
+    color: #000;
 }
 
-.media {
-	padding: 1em;
-	border-radius: 0.4em; 
+ a {
+	color: #4C5662;
+	text-decoration: none;
+ }
+
+ a:hover, a:focus {
+     color: #428bca;
+     text-decoration: none;
+ }
+ 
+ .badge {background: rgba(254,213,1,0.7); color:#000;}
+
+a[href^="#group-right-info-popover-content"],
+a[href^="#group-center-info-popover-content"],
+a[href^="#group-left-info-popover-content"] {
+    color: #4C5662
 }
 
-.media.download, .media.download_aggregate, .media.download_count,
-.media.download a, .media.download_aggregate a, .media.download_count a {
-	color: white;
-	background: #c0392b;
-}
-.media.view, .media.view_aggregate, .media.view_count,
-.media.view a, .media.view_aggregate a, .media.view_count a {
-	color: white;
-	background: #72c02c;
-}
-.media.scopus, .media.scopus_aggregate, .media.scopus_count,
-.media.scopus a, .media.scopus_aggregate a, .media.scopus_count a {
-	color: white;
-	background: #ff7800;
-}
-.media.pubmed, .media.pubmed_aggregate, .media.pubmed_count,
-.media.pubmed a, .media.pubmed_aggregate a, .media.pubmed_count a {
-	color: white;
-	background: #141927;
-}
-.media.wos, .media.wos_aggregate, .media.wos_count,
-.media.wos a, .media.wos_aggregate a, .media.wos_count a {
-	color: white;
-	background: #505050;
-}
-.media.google, .media.google a {
-	color: white;
-	background: #4285f4;
-}
-.media.altmetric {
-	background: white;
-	color: #c7254e;
-	border: 3px solid #c7254e;
-}
-.media > .media-left > i.fa {
-	font-size: 3em;
+a[href^="#group-right-info-popover-content"]>.col-md-4.text-center:hover,
+a[href^="#group-center-info-popover-content"]>.col-md-4.text-center:hover,
+a[href^="#group-left-info-popover-content"]>.col-md-4.text-center:hover {
+    background-color: rgba(238, 238, 238, 0.6);
 }
 
-.col-lg-12 > .media, .col-xs-12 > .media  {margin-bottom: 1em; width: 100%;}
-.media-left {float:left;}
-
-#collapseFacet { background-color: whitesmoke;}
-#export-biblio-panel { background-color: whitesmoke;}
-
-footer.navbar-bottom {
-	z-index: 0;
+a[href^="#group-right-info-popover-content"] > .text-center > h4,
+a[href^="#group-center-info-popover-content"] > .text-center > h4,
+a[href^="#group-left-info-popover-content"] > .text-center > h4 {
+    color: #000
 }
 
-.span-filter-applied-bordered {   
+small.label.label-success {background-color: #000}
+
+body {
+    background: #eee;
+    background-size: 100% 100%;
 }
 
-.a-filter-applied-remove {   
+footer.navbar {
+    background: transparent;
+    margin-top: -21px;
+    background-color: rgba(60, 70, 84, 0.9);
+    border-color: #080808;
+    color: #fff;
 }
 
-.media.identifier_signature {
-	color: white;
-	background: #505050;
+footer.navbar p {color: #000; margin: 0 0 0px;}
+
+.panel {
+    background: transparent;
+	border:none;
+}
+.panel-title {color: #000}
+
+footer a {color: #fed501}
+
+footer div.panel-body > ul {padding-left: 0px;}
+
+footer div.extra-footer {color: #000; background: #fed501;}
+
+#designedby {padding: 7px; font-size:12px; padding-left: 65px;}
+
+footer div.extra-footer a {color: #000;}
+
+footer .panel-title {color: #fff}
+
+.carousel-inner .item img {
+    height:178px;
+    width: 100%;
 }
 
-.media.title_signature {
-	color: white;
-	background: #4285f4;
+.top-menu-library-div > .navbar-nav > li > a {
+    color: #000;
 }
 
-.media.identifier_signature a {
-	color: white;
+#top-menu > li > a:hover {
+    color: #000;
 }
 
-.media.title_signature a {
-	color: white;
+.dropdown-menu > li > a:hover {
+    background-color: #4C5662;
+    background-image: none;
 }
 
-.tabsignature {
-	padding: 1em;
+.undefinedstaff {color:#4C5662}
+
+#footer_copyright {padding: 5px;}
+
+.extra-footer.design-bar.row {background:rgba(238,238,238,0.9);}
+
+body.undernavigation > b { font-weight: 400; }
+
+.img-thumbnail {
+    display: inline-block;
+    height: auto;
+    max-width: 100%;
+    padding: 7px;
+    line-height: 1.428571429;
+    background-color: #fff;
+    border: 0px solid #ddd;
+    border-radius: 0px;
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out
 }
 
-.media.dedup, .media.dedup a {
-	color: white;
-	background: gray;
-}
-
-.container{
-	background-color: #fff;
-}
-
-ol.breadcrumb li a {
-    color: white;
-    font-weight: bold;
-    font-style: normal;
-}
-		
-#content{
-	padding-bottom: 0px;
-}
-
-footer.navbar{
-	border:0px;
-}
-footer .container {
-	background: transparent;
-}
-
-.form-control{
-	color:#000;
-}
-
-.modal.in .modal-dialog {
-	margin:0px auto;
-	left: auto;
-	right:auto;
-}
-.fullheight {min-height: 35em;}
-
-.metadata-divider {
-	margin-top:5px;
-	margin-bottom:5px;
+#readheader {
+    padding-left: 20px;
 }

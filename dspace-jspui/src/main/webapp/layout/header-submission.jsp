@@ -44,147 +44,153 @@
 
 <!DOCTYPE html>
 <html>
-    <head>
-        <title><%= title %> | <%= siteName %></title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <meta name="Generator" content="<%= generator %>" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="shortcut icon" href="<%= request.getContextPath() %>/favicon.ico" type="image/x-icon"/>
-	    <link rel="stylesheet" href="<%= request.getContextPath() %>/static/css/jquery-ui-1.10.3.custom/redmond/jquery-ui-1.10.3.custom.css" type="text/css" />
-	    <link rel="stylesheet" href="<%= request.getContextPath() %>/static/css/bootstrap/bootstrap.min.css" type="text/css" />
-	    <link rel="stylesheet" href="<%= request.getContextPath() %>/static/css/bootstrap/bootstrap-theme.min.css" type="text/css" />
-   	    <link href="<%= request.getContextPath() %>/static/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-		<link href="<%= request.getContextPath() %>/static/css/jstree/themes/default/style.min.css" rel="stylesheet"/>
-	    <link rel="stylesheet" href="<%= request.getContextPath() %>/static/css/bootstrap/dspace-theme.css" type="text/css" />
-	    <link rel="stylesheet" href="<%= request.getContextPath() %>/static/css/number-polyfill.css" type="text/css" />
-<%
+
+<head>
+    <title><%= title %> | <%= siteName %></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="Generator" content="<%= generator %>" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="<%= request.getContextPath() %>/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet"
+        href="<%= request.getContextPath() %>/static/css/jquery-ui-1.10.3.custom/redmond/jquery-ui-1.10.3.custom.css"
+        type="text/css" />
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/static/css/bootstrap/bootstrap.min.css"
+        type="text/css" />
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/static/css/bootstrap/bootstrap-theme.min.css"
+        type="text/css" />
+    <link href="<%= request.getContextPath() %>/static/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="<%= request.getContextPath() %>/static/css/jstree/themes/default/style.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/static/css/bootstrap/dspace-theme.css"
+        type="text/css" />
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/static/css/number-polyfill.css" type="text/css" />
+    <%
     if (!"NONE".equals(feedRef))
     {
         for (int i = 0; i < parts.size(); i+= 3)
         {
 %>
-        <link rel="alternate" type="application/<%= (String)parts.get(i) %>" title="<%= (String)parts.get(i+1) %>" href="<%= request.getContextPath() %>/feed/<%= (String)parts.get(i+2) %>/<%= feedRef %>"/>
-<%
+    <link rel="alternate" type="application/<%= (String)parts.get(i) %>" title="<%= (String)parts.get(i+1) %>"
+        href="<%= request.getContextPath() %>/feed/<%= (String)parts.get(i+2) %>/<%= feedRef %>" />
+    <%
         }
     }
     
     if (osLink)
     {
 %>
-        <link rel="search" type="application/opensearchdescription+xml" href="<%= request.getContextPath() %>/<%= osCtx %>description.xml" title="<%= osName %>"/>
-<%
+    <link rel="search" type="application/opensearchdescription+xml"
+        href="<%= request.getContextPath() %>/<%= osCtx %>description.xml" title="<%= osName %>" />
+    <%
     }
 
     if (extraHeadData != null)
         { %>
-<%= extraHeadData %>
-<%
+    <%= extraHeadData %>
+    <%
         }
 %>
-	<script type='text/javascript' src="<%= request.getContextPath() %>/static/js/jquery/jquery-1.11.3.min.js"></script>
-	<script type='text/javascript' src='<%= request.getContextPath() %>/static/js/jquery/jquery-ui-1.11.4.min.js'></script>
-	<script type='text/javascript' src='<%= request.getContextPath() %>/static/js/bootstrap/bootstrap.min.js'></script>
-	<script type="text/javascript" src="<%= request.getContextPath() %>/js/tmpl.min.js"></script>
-	<script type="text/javascript" src="<%= request.getContextPath() %>/js/jquery.dataTables.min.js"></script>
-	<script type="text/javascript" src="<%= request.getContextPath() %>/js/dataTables.bootstrap.min.js"></script>
-	<script type="text/javascript" src="<%= request.getContextPath() %>/js/dataTables.buttons.min.js"></script>
-	<script type="text/javascript" src="<%= request.getContextPath() %>/js/buttons.bootstrap.min.js"></script>
-	<script type="text/javascript" src="<%= request.getContextPath() %>/js/buttons.html5.min.js"></script>
-	<script type="text/javascript" src="<%= request.getContextPath() %>/js/dataTables.responsive.min.js"></script>
-	<script type='text/javascript' src='<%= request.getContextPath() %>/static/js/holder.js'></script>
-	<script type="text/javascript" src="<%= request.getContextPath() %>/js/jdyna/jdyna.js"></script>
-	<script type="text/javascript" src="<%= request.getContextPath() %>/utils.js"></script>
-    <script type="text/javascript" src="<%= request.getContextPath() %>/static/js/choice-support.js"></script>    
-	<script type='text/javascript'>
-		var j = jQuery.noConflict();
-		var $ = jQuery.noConflict();
-		var JQ = j;
-		dspaceContextPath = "<%=request.getContextPath()%>";
-	</script>
-	
-	<script type='text/javascript'
-		src='<%= request.getContextPath() %>/js/dedup.js'></script>
-	<script type='text/javascript'
-		src='<%= request.getContextPath() %>/js/dedup-function.js'></script>
-	<script type='text/javascript'
-		src='<%= request.getContextPath() %>/js/dedup-behaviour.js'></script>
-			
+    <script type='text/javascript' src="<%= request.getContextPath() %>/static/js/jquery/jquery-1.11.3.min.js"></script>
+    <script type='text/javascript'
+        src='<%= request.getContextPath() %>/static/js/jquery/jquery-ui-1.11.4.min.js'></script>
+    <script type='text/javascript' src='<%= request.getContextPath() %>/static/js/bootstrap/bootstrap.min.js'></script>
+    <script type="text/javascript" src="<%= request.getContextPath() %>/js/tmpl.min.js"></script>
+    <script type="text/javascript" src="<%= request.getContextPath() %>/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="<%= request.getContextPath() %>/js/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript" src="<%= request.getContextPath() %>/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="<%= request.getContextPath() %>/js/buttons.bootstrap.min.js"></script>
+    <script type="text/javascript" src="<%= request.getContextPath() %>/js/buttons.html5.min.js"></script>
+    <script type="text/javascript" src="<%= request.getContextPath() %>/js/dataTables.responsive.min.js"></script>
+    <script type='text/javascript' src='<%= request.getContextPath() %>/static/js/holder.js'></script>
+    <script type="text/javascript" src="<%= request.getContextPath() %>/js/jdyna/jdyna.js"></script>
+    <script type="text/javascript" src="<%= request.getContextPath() %>/utils.js"></script>
+    <script type="text/javascript" src="<%= request.getContextPath() %>/static/js/choice-support.js"></script>
+    <script type='text/javascript'>
+        var j = jQuery.noConflict();
+        var $ = jQuery.noConflict();
+        var JQ = j;
+        dspaceContextPath = "<%=request.getContextPath()%>";
+    </script>
+
+    <script type='text/javascript' src='<%= request.getContextPath() %>/js/dedup.js'></script>
+    <script type='text/javascript' src='<%= request.getContextPath() %>/js/dedup-function.js'></script>
+    <script type='text/javascript' src='<%= request.getContextPath() %>/js/dedup-behaviour.js'></script>
+
     <%--Gooogle Analytics recording.--%>
     <%
     if (analyticsKey != null && analyticsKey.length() > 0)
     {
     %>
-        <script type="text/javascript">
-            var _gaq = _gaq || [];
-            _gaq.push(['_setAccount', '<%= analyticsKey %>']);
-            _gaq.push(['_trackPageview']);
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', '<%= analyticsKey %>']);
+        _gaq.push(['_trackPageview']);
 
-            (function() {
-                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-            })();
-        </script>
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
     <%
     }
     if (extraHeadDataLast != null)
     { %>
-		<%= extraHeadDataLast %>
-		<%
+    <%= extraHeadDataLast %>
+    <%
 		    }
     %>
-    
 
-<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!--[if lt IE 9]>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
   <script src="<%= request.getContextPath() %>/static/js/html5shiv.js"></script>
   <script src="<%= request.getContextPath() %>/static/js/respond.min.js"></script>
 <![endif]-->
-    </head>
+</head>
 
-    <%-- HACK: leftmargin, topmargin: for non-CSS compliant Microsoft IE browser --%>
-    <%-- HACK: marginwidth, marginheight: for non-CSS compliant Netscape browser --%>
-    <body class="undernavigation">
-<a class="sr-only" href="#content">Skip navigation</a>
-<header class="navbar navbar-inverse navbar-square">    
-    <%
+<%-- HACK: leftmargin, topmargin: for non-CSS compliant Microsoft IE browser --%>
+<%-- HACK: marginwidth, marginheight: for non-CSS compliant Netscape browser --%>
+
+<body class="undernavigation">
+    <a class="sr-only" href="#content">Skip navigation</a>
+    <header class="container navbar navbar-square">
+        <%
     if (!navbar.equals("off"))
     {
 %>
-            <div class="container-fluid">
-                <dspace:include page="<%= navbar %>" />
-            </div>
-<%
+        <div>
+            <dspace:include page="<%= navbar %>" />
+        </div>
+        <%
     }
     else
     {
     	%>
-        <div class="container-fluid">
+        <div>
             <dspace:include page="/layout/navbar-minimal.jsp" />
         </div>
-<%    	
+        <%
     }
 %>
-</header>
+    </header>
 
-<main id="content" role="main">
-                <%-- Location bar --%>
-<%
+    <main id="content" role="main">
+        <%-- Location bar --%>
+        <%
     if (locbar)
     {
 %>
-<div class="container">
-	<br>
-                <dspace:include page="/layout/location-bar.jsp" />
-</div>                
-<%
+        <div class="container">
+            <dspace:include page="/layout/location-bar.jsp" />
+        </div>
+        <%
     }
 %>
 
 
         <%-- Page contents --%>
-<div class="container fullheight">
-<% if (request.getAttribute("dspace.layout.sidebar") != null) { %>
-	<div class="row">
-		<div class="col-md-9">
-<% } %>		
+        <div class="container fullheight">
+            <% if (request.getAttribute("dspace.layout.sidebar") != null) { %>
+            <div class="row">
+                <div class="col-md-9">
+                    <% } %>
